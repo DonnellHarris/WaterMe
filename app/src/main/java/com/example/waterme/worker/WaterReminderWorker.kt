@@ -35,7 +35,11 @@ class WaterReminderWorker(
             applicationContext
         )
 
-        return Result.success()
+        return try {
+            Result.success()
+        } catch (throwable: Throwable) {
+            Result.failure()
+        }
     }
 
     companion object {
